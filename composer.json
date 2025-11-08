@@ -1,0 +1,14 @@
+{
+    "require-dev": {
+        "codeception/codeception": "^5.3",
+        "codeception/module-phpbrowser": "^3.0",
+        "symfony/dotenv": "^7.3",
+        "codeception/module-asserts": "*",
+        "fakerphp/faker": "^1.24"
+    },
+    "autoload": {
+        "psr-4": {
+            "Support\\": "tests/Support/"
+        }
+    }
+}

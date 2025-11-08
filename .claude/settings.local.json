@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(vendor/bin/codecept run:*)",
+      "Bash(vendor/bin/codecept build:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

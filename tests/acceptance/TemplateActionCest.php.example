@@ -1,0 +1,34 @@
+<?php
+use Tests\Support\AcceptanceTester;
+
+class TemplateActionCest
+{
+    /**
+     * Template for adding a new action:
+     * 1) Navigate to <page>
+     * 2) Interact using data-qa selectors
+     * 3) Assert results
+     */
+    public function exampleAction(AcceptanceTester $I)
+    {
+        $I->wantTo('Template: perform action X');
+
+        // Step 0: login if needed
+        $I->loginAs('test_user');
+
+        // Step 1: navigate
+        $I->amOnPage('/some/protected/page');
+
+        // Step 2: action (use data-qa - note: waitForElementVisible not available in PhpBrowser)
+        // For PhpBrowser, elements are immediately available or not present
+        $I->seeElement('button[data-qa="create-item"]');
+        $I->click('button[data-qa="create-item"]');
+
+        // Step 3: fill form
+        $I->fillField('input[data-qa="item-title"]', 'Test item');
+        $I->click('button[data-qa="submit-item"]');
+
+        // Step 4: assertion
+        $I->see('Item created successfully');
+    }
+}
