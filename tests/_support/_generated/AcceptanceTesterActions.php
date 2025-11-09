@@ -1,4 +1,4 @@
-<?php  //[STAMP] 2086d622b59baf6b106706a7c92424b5
+<?php  //[STAMP] db6ce9b20015d9edeb94cf313f6c9a9d
 // phpcs:ignoreFile
 namespace Tests\Support\_generated;
 
@@ -4424,9 +4424,9 @@ trait AcceptanceTesterActions
      * [!] Method is generated. Documentation taken from corresponding module.
      *
      *
-     * @see \Support\Helper\Acceptance::loginAs()
+     * @see \Tests\Support\Helper\Acceptance::loginAs()
      */
-    public function loginAs(string $role = "test_user") {
+    public function loginAs(\AcceptanceTester $I, string $role = "test_user") {
         return $this->getScenario()->runStep(new \Codeception\Step\Action('loginAs', func_get_args()));
     }
     /**
@@ -4434,9 +4434,9 @@ trait AcceptanceTesterActions
      *
      * [!] Test won't be stopped on fail. Error won't be logged 
      *
-     * @see \Support\Helper\Acceptance::loginAs()
+     * @see \Tests\Support\Helper\Acceptance::loginAs()
      */
-    public function tryToLoginAs(string $role = "test_user"): bool {
+    public function tryToLoginAs(\AcceptanceTester $I, string $role = "test_user"): bool {
         return $this->getScenario()->runStep(new \Codeception\Step\TryTo('loginAs', func_get_args()));
     }
     /**
@@ -4446,9 +4446,9 @@ trait AcceptanceTesterActions
      *
      * Retry number and interval set by $I->retry();
      *
-     * @see \Support\Helper\Acceptance::loginAs()
+     * @see \Tests\Support\Helper\Acceptance::loginAs()
      */
-    public function retryLoginAs(string $role = "test_user") {
+    public function retryLoginAs(\AcceptanceTester $I, string $role = "test_user") {
         $retryNum      = $this->retryNum ?? 1;
         $retryInterval = $this->retryInterval ?? 200;
         return $this->getScenario()->runStep(new \Codeception\Step\Retry('loginAs', func_get_args(), $retryNum, $retryInterval));
@@ -4459,34 +4459,85 @@ trait AcceptanceTesterActions
      * [!] Method is generated. Documentation taken from corresponding module.
      *
      *
-     * @see \Support\Helper\Acceptance::searchCompany()
+     * @see \Tests\Support\Helper\Acceptance::seeElementInDom()
      */
-    public function searchCompany(string $companyName) {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('searchCompany', func_get_args()));
+    public function seeElementInDom(string $needle): bool {
+        return $this->getScenario()->runStep(new \Codeception\Step\Assertion('seeElementInDom', func_get_args()));
+    }
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * [!] Conditional Assertion: Test won't be stopped on fail
+     *
+     * @see \Tests\Support\Helper\Acceptance::seeElementInDom()
+     */
+    public function canSeeElementInDom(string $needle): bool {
+        return $this->getScenario()->runStep(new \Codeception\Step\ConditionalAssertion('seeElementInDom', func_get_args()));
     }
     /**
      * [!] Method is generated. Documentation taken from corresponding module.
      *
      * [!] Test won't be stopped on fail. Error won't be logged 
      *
-     * @see \Support\Helper\Acceptance::searchCompany()
+     * @see \Tests\Support\Helper\Acceptance::seeElementInDom()
      */
-    public function tryToSearchCompany(string $companyName): bool {
-        return $this->getScenario()->runStep(new \Codeception\Step\TryTo('searchCompany', func_get_args()));
+    public function tryToSeeElementInDom(string $needle): bool {
+        return $this->getScenario()->runStep(new \Codeception\Step\TryTo('seeElementInDom', func_get_args()));
     }
     /**
      * [!] Method is generated.
      *
-     * * Executes searchCompany and retries on failure.
+     * * Executes seeElementInDom and retries on failure.
      *
      * Retry number and interval set by $I->retry();
      *
-     * @see \Support\Helper\Acceptance::searchCompany()
+     * @see \Tests\Support\Helper\Acceptance::seeElementInDom()
      */
-    public function retrySearchCompany(string $companyName) {
+    public function retrySeeElementInDom(string $needle) {
         $retryNum      = $this->retryNum ?? 1;
         $retryInterval = $this->retryInterval ?? 200;
-        return $this->getScenario()->runStep(new \Codeception\Step\Retry('searchCompany', func_get_args(), $retryNum, $retryInterval));
+        return $this->getScenario()->runStep(new \Codeception\Step\Retry('seeElementInDom', func_get_args(), $retryNum, $retryInterval));
+    }
+
+ 
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * Count product links containing a specific search term
+     *
+     * @param string $searchTerm Term to search for in anchor text (case-insensitive)
+     * @return int Count of matching product links
+     * @see \Tests\Support\Helper\Acceptance::countProductLinksContaining()
+     */
+    public function countProductLinksContaining(string $searchTerm): int {
+        return $this->getScenario()->runStep(new \Codeception\Step\Action('countProductLinksContaining', func_get_args()));
+    }
+    /**
+     * [!] Method is generated. Documentation taken from corresponding module.
+     *
+     * [!] Test won't be stopped on fail. Error won't be logged 
+     * Count product links containing a specific search term
+     *
+     * @param string $searchTerm Term to search for in anchor text (case-insensitive)
+     * @return int Count of matching product links
+     * @see \Tests\Support\Helper\Acceptance::countProductLinksContaining()
+     */
+    public function tryToCountProductLinksContaining(string $searchTerm): bool {
+        return $this->getScenario()->runStep(new \Codeception\Step\TryTo('countProductLinksContaining', func_get_args()));
+    }
+    /**
+     * [!] Method is generated.
+     *
+     * * Executes countProductLinksContaining and retries on failure.
+     *
+     * Retry number and interval set by $I->retry();
+     *
+     * @see \Tests\Support\Helper\Acceptance::countProductLinksContaining()
+     */
+    public function retryCountProductLinksContaining(string $searchTerm) {
+        $retryNum      = $this->retryNum ?? 1;
+        $retryInterval = $this->retryInterval ?? 200;
+        return $this->getScenario()->runStep(new \Codeception\Step\Retry('countProductLinksContaining', func_get_args(), $retryNum, $retryInterval));
     }
 
  
@@ -4494,42 +4545,7 @@ trait AcceptanceTesterActions
      * [!] Method is generated. Documentation taken from corresponding module.
      *
      *
-     * @see \Support\Helper\Acceptance::logout()
-     */
-    public function logout() {
-        return $this->getScenario()->runStep(new \Codeception\Step\Action('logout', func_get_args()));
-    }
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     * [!] Test won't be stopped on fail. Error won't be logged 
-     *
-     * @see \Support\Helper\Acceptance::logout()
-     */
-    public function tryToLogout(): bool {
-        return $this->getScenario()->runStep(new \Codeception\Step\TryTo('logout', func_get_args()));
-    }
-    /**
-     * [!] Method is generated.
-     *
-     * * Executes logout and retries on failure.
-     *
-     * Retry number and interval set by $I->retry();
-     *
-     * @see \Support\Helper\Acceptance::logout()
-     */
-    public function retryLogout() {
-        $retryNum      = $this->retryNum ?? 1;
-        $retryInterval = $this->retryInterval ?? 200;
-        return $this->getScenario()->runStep(new \Codeception\Step\Retry('logout', func_get_args(), $retryNum, $retryInterval));
-    }
-
- 
-    /**
-     * [!] Method is generated. Documentation taken from corresponding module.
-     *
-     *
-     * @see \Support\Helper\Acceptance::fetchResetLinkFromImap()
+     * @see \Tests\Support\Helper\Acceptance::fetchResetLinkFromImap()
      */
     public function fetchResetLinkFromImap($searchPattern = "\/reset\/i", $timeout = 60) {
         return $this->getScenario()->runStep(new \Codeception\Step\Action('fetchResetLinkFromImap', func_get_args()));
@@ -4539,7 +4555,7 @@ trait AcceptanceTesterActions
      *
      * [!] Test won't be stopped on fail. Error won't be logged 
      *
-     * @see \Support\Helper\Acceptance::fetchResetLinkFromImap()
+     * @see \Tests\Support\Helper\Acceptance::fetchResetLinkFromImap()
      */
     public function tryToFetchResetLinkFromImap($searchPattern = "\/reset\/i", $timeout = 60): bool {
         return $this->getScenario()->runStep(new \Codeception\Step\TryTo('fetchResetLinkFromImap', func_get_args()));
@@ -4551,7 +4567,7 @@ trait AcceptanceTesterActions
      *
      * Retry number and interval set by $I->retry();
      *
-     * @see \Support\Helper\Acceptance::fetchResetLinkFromImap()
+     * @see \Tests\Support\Helper\Acceptance::fetchResetLinkFromImap()
      */
     public function retryFetchResetLinkFromImap($searchPattern = "\/reset\/i", $timeout = 60) {
         $retryNum      = $this->retryNum ?? 1;

@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(vendor/bin/codecept run:*)",
-      "Bash(vendor/bin/codecept build:*)"
+      "Bash(vendor/bin/codecept build:*)",
+      "Bash(mkdir:*)"
     ],
     "deny": [],
     "ask": []

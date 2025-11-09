@@ -1,5 +1,5 @@
 <?php
-namespace Helper;
+namespace Tests\Support\Helper;
 use Codeception\Module;
 
 class Acceptance extends Module
@@ -47,6 +47,22 @@ class Acceptance extends Module
         $resp = $this->getModule('PhpBrowser')->_getResponseContent();
         $dir = codecept_output_dir();
         file_put_contents($dir . 'last_response.html', $resp);
+    }
+
+    /**
+     * Count product links containing a specific search term
+     *
+     * @param string $searchTerm Term to search for in anchor text (case-insensitive)
+     * @return int Count of matching product links
+     */
+    public function countProductLinksContaining(string $searchTerm): int
+    {
+        $phpBrowser = $this->getModule('PhpBrowser');
+        $productLinks = $phpBrowser->grabMultiple('a');
+        $linksContainingTerm = array_filter($productLinks, function($text) use ($searchTerm) {
+            return stripos($text, $searchTerm) !== false;
+        });
+        return count($linksContainingTerm);
     }
 
     // Optional: wrapper to get IMAP reset link (keep simple)
